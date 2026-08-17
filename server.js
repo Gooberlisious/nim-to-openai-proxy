@@ -499,10 +499,11 @@ async function callWithFallback(baseRequest, models, enableThinking, clientReaso
     } catch (err) {
       lastError = err;
       console.warn(
-        `[FALLBACK] Model failed: ${model}`,
-        err.response?.status,
-        err.response?.data?.error?.message || err.message
-      );
+  `[FALLBACK] Model failed: ${model}`,
+  err.response?.status,
+  JSON.stringify(err.response?.data || err.message)
+);
+
     }
   }
 
