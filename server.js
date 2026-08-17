@@ -272,12 +272,20 @@ function getReasoningPayload(model, enableThinking, clientReasoningEffort, hasTo
     }
 
     case 'deepseek-ai/deepseek-v4-pro':
-    case 'deepseek-ai/deepseek-v4-flash': {
-      if (!enableThinking) return {};
-      const payload = { chat_template_kwargs: { thinking: true } };
-      if (effort) payload.chat_template_kwargs.reasoning_effort = effort;
-      return payload;
+case 'deepseek-ai/deepseek-v4-flash': {
+  const payload = {
+    chat_template_kwargs: {
+      thinking: enableThinking
     }
+  };
+
+  if (enableThinking && effort) {
+    payload.chat_template_kwargs.reasoning_effort = effort;
+  }
+
+  return payload;
+}
+
 
     case 'openai/gpt-oss-120b':
     case 'openai/gpt-oss-20b': {
