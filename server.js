@@ -272,7 +272,7 @@ function getReasoningPayload(model, enableThinking, clientReasoningEffort, hasTo
     }
 
     case 'deepseek-ai/deepseek-v4-pro':
-case 'deepseek-ai/deepseek-v4-flash': {
+case 'deepseek-ai/deepseek-v4-flash-0731': {
   const payload = {
     chat_template_kwargs: {
       thinking: enableThinking
